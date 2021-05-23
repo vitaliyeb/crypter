@@ -22,7 +22,7 @@ const path = require('path');
         await new Promise((res) => intervalId = setInterval(async () => {
             totalBTC = await page.$$eval('.js-balances-bitcoin [data-original-title="Total balance"]', (el) => el[0]?.textContent?.trim());
             if (totalBTC !== 'undefined') res(clearInterval(intervalId));
-        }, 100))
+        }, 150))
 
         if (totalBTC !== "0") dataLogger(page.url(), totalBTC);
 
